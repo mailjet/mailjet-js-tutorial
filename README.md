@@ -73,6 +73,13 @@ There you go. Nothing amazing here but, let's go on.
 
 ## Write some mailjet code.
 
+First, you will have to modify a single line in the `app.js` file. It will allow us to
+read extended data from the client, like arrays etc..
+Find this line:
+``` app.use(bodyParser.urlencoded({ extended: false })); ```
+and replace it with:
+``` app.use(bodyParser.urlencoded({ extended: true }));```
+
 into your application root folder, create and open a file with your favorite text-editor. call it `mailjet-util.js` for example.
 
 You will have to import the mailjet module, by creating a reference to it.

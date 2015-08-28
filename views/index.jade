@@ -1,0 +1,22 @@
+// views/index.jade
+
+extends layout
+
+block content
+  img#logo(src="https://www.manycontacts.com/assets/img/synchronization/mailjet.png" width="100" height="100")
+  #container
+    #wrapper
+      #sender.field
+        input#sender-input(type="text" placeholder="Your Email")
+      #name.field
+        input#name-input(type="text" placeholder="Your Name")
+      #subject.field
+        input#subject-input(type="text" placeholder="Subject")
+      #recipients.field
+        input#recipients-input(type="text" placeholder="Recipients")
+      #message
+          #editor(contenteditable="true")
+      #send-button
+          button#send-input Send
+  script(src="/javascripts/jquery.js")
+  script(src="/javascripts/script.js")

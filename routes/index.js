@@ -29,7 +29,7 @@ router.post('/send/', function (req, res) {
   The callback will process an error, if one, a response from the mailjet servers,
   and a body. If everything goes well, the body will confirm it.
   */
-  mailjet.sendEmail(req.body, function (err, response, body) {
+  mailjet.sendEmail(req.body.credentials, req.body.email, function (err, response, body) {
     // We send the response to the client !
     res.send(JSON.stringify({error: err, response: response, body: body}));
   });

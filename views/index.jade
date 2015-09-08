@@ -3,17 +3,23 @@
 extends layout
 
 block content
-  img#logo(src="https://www.manycontacts.com/assets/img/synchronization/mailjet.png" width="100" height="100")
   #container
+    img#logo(src="https://www.manycontacts.com/assets/img/synchronization/mailjet.png" width="100" height="100")
     #wrapper
+      #keys.field
+        button(onclick="window.open('https://app.mailjet.com/signup', '_newtab')")#help ?
+          #help-data
+            p New to Mailjet ? Click the button to sign up and get your keys ! :)
+        input#api-key(type="text" placeholder="API Key")
+        input#api-secret(type="password" placeholder="API Secret")
       #sender.field
-        input#sender-input(type="text" placeholder="Your Email")
+        input#sender-input(type="text" placeholder="Your sender email")
       #name.field
         input#name-input(type="text" placeholder="Your Name")
       #subject.field
         input#subject-input(type="text" placeholder="Subject")
       #recipients.field
-        input#recipients-input(type="text" placeholder="Recipients")
+        input#recipients-input(type="text" placeholder="Recipients separated by ','")
       #message
           #editor(contenteditable="true")
       #send-button

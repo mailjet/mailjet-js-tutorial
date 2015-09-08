@@ -15,6 +15,7 @@ function getRecipients () {
 }
 
 window.onload = function () {
+
   /*
   Register a listener. When the Send button is clicked, execute the function.
   You want to test the data before sending it, but we are not going to make it today.
@@ -24,7 +25,9 @@ window.onload = function () {
         recipients = getRecipients(),
         content = editor.innerHTML,
         name = $('#name-input').val(),
-        sender = $('#sender-input').val();
+        sender = $('#sender-input').val(),
+        apiKey = $('#api-key').val(),
+        apiSecret = $('#api-secret').val();
 
     console.log (JSON.stringify(recipients, null, 4));
 
@@ -42,7 +45,10 @@ window.onload = function () {
     $.ajax({
       type: 'POST',
       url: '/send/',
-      data: data,
+      data: {
+        email: data,
+        credentials: {key: apiKey, secret: apiSecret},
+      },
       success: function (data) {
         window.location = '/';
       },

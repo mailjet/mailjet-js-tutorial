@@ -384,4 +384,4 @@ Mailjet.post('sender')
 ```
 
 Homework:
-Try to add your contact list to the side. :)
+Try to add your contact list to on side. :)

@@ -1,6 +1,6 @@
 
 ## What you are going to create:
-https://github.com/GuillaumeBadi/mailjet-js-tutorial
+https://nodejs-wrapper-demo.mailjet.com/
 
 ## Installation
 

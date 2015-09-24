@@ -1,3 +1,7 @@
+
+## What you are going to create:
+https://github.com/GuillaumeBadi/mailjet-js-tutorial
+
 ## Installation
 
 There are a few things to install to get started.

@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var debug = require('debug')('myapp:server');
 
 /*
 We import our `mailjet-util` file.
@@ -29,9 +30,16 @@ router.post('/send/', function (req, res) {
   The callback will process an error, if one, a response from the mailjet servers,
   and a body. If everything goes well, the body will confirm it.
   */
-  mailjet.sendEmail(req.body.credentials, req.body.email, function (err, response, body) {
+  mailjet.sendEmail(req.body.credentials, req.body.email)
+  .then(function (response) {
+    debug('Email sent!');
     // We send the response to the client !
-    res.send(JSON.stringify({error: err, response: response, body: body}));
+    res.send(JSON.stringify({error: "", response: response.response.statusCode, body: response.response.body}));
+  })
+  .catch(function (err, response, body) {
+    debug('Email not sent!', err);
+    // We send the response to the client !
+    res.status(400).send(JSON.stringify({error: err.ErrorMessage, response: response, body: body}));
   });
 });
 

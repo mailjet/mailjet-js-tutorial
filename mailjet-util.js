@@ -15,10 +15,12 @@ exports.sendEmail = function (cred, email, callback) {
   var mailjet = MailjetClient.connect(cred.key, cred.secret);
 
   var send = mailjet.post('send');
-  send.request(email, callback);
+  var promise = send.request(email);
   /*
   For this demo, there is no point to manage sessions... But you should...
   */
   mailjet.apiKey = null;
   mailjet.apiSecret = null;
+
+  return promise;
 }

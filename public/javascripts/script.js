@@ -50,7 +50,7 @@ window.onload = function () {
         credentials: {key: apiKey, secret: apiSecret},
       },
       success: function (data) {
-        window.location = '/';
+        //window.location = '/';
       },
       error: function (err) {
         console.log (err);
